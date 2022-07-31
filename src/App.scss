@@ -30,14 +30,210 @@ body{
 
 .App{
     display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    padding: 5% 0;
+}
+
+//TEXT & REUSABLES
+h1, h2{
+    color: $dkBlue;
+}
+
+h5, p, span{
+    color: $mdGray;
+}
+
+h5{
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+//LOGO COMPONENT
+.logo-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 175px;
+    margin-bottom: 2.5%;
+    text-align: center;
+    
+    p{
+        line-height: 1.75;
+        padding-top: 1rem;
+    }
+   
+}
+
+.logo{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    margin: 0 auto;
+
+    height: 100%;
+    z-index: -1;
 }
 
 
 //PRICING COMPONENT
 .pricing-container{
-    height: 500px;
-    width: 500px;
     background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 2rem;
+
+    height: 600px;
+    width: 500px;
 }
+
+//BENEFITS CONTAINER
+.benefits-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-top:1px solid $ltGrayBlue;
+    height: 45%;
+    margin-top: 5%;
+    padding-top: 5%;
+}
+
+.trial-btn{
+    background:$dkBlue;
+    border:none;
+    border-radius: 25px;
+    color:$ltBlue;
+    cursor:pointer;
+    margin: 5%;
+    padding: 1rem;
+    width: 45%;
+}
+
+
+//SLIDER CONTAINER
+.slider-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 55%;
+    width: 100%;
+}
+
+.range-slider{ 
+    appearance: none;
+    background-color: $ltGrayBlue;
+    border-radius: 10px;
+    outline: none;
+    height: 10px;
+    width: 100%;
+}
+
+.range-slider::-webkit-slider-thumb{
+    appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    background: $dkCyan;
+    background-image: url("/public/images/icon-slider.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.price-container{ 
+    h1{
+        font-size: 3rem;
+        margin-right: 1rem;
+    }
+
+    *{
+        display:inline;
+    }
+}
+
+
+//TOGGLE
+.toggle-container{ 
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 80%;
+}  
+
+.discount{
+    background-color:$ltRedGray;
+    border-radius: 10px;
+    color:$ltRed;
+    font-size: 12px;
+    padding: 0.25em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $altGrayBlue;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: $ltCyan;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px $ltCyan;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
