@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 
 
 // - 10K pageviews / $8 per month
@@ -8,18 +8,32 @@ import React from "react"
 // - 1M pageviews / $36 per month
 
 function Slider(){
+
+    const [price, setPrice] = useState("16")
+    const [discount, setDiscount] = useState(false)
+
+
+    const handleInput = () =>{
+        const slider = document.getElementById("rangeSlider")
+        setPrice(slider.value)
+    }
+
+    const handleClick = () =>{
+        setDiscount(!discount)
+    }
+
     return(
         <div className="slider-container">
             <h5 className="views">100K Pagviews</h5>
-            <input className="range-slider" type="range" />
+            <input onInput={handleInput} id="rangeSlider" className="range-slider" type="range" min="8" max="36" step="4" value="16" />
             <div className="price-container">
-                <h1>$16.00</h1>
+                <h1>${discount ? price * 0.75 : price}.00</h1>
                 <p>/month</p>
             </div>
             <div className="toggle-container">
                 <span>Monthly Billing</span>
                 <label className="switch">
-                    <input type="checkbox" />
+                    <input onClick={handleClick} type="checkbox" />
                     <span className="slider round"></span>
                 </label>
                 <span>Monthly Billing</span>
