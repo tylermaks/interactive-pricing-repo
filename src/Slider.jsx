@@ -10,7 +10,7 @@ import React from "react"
 function Slider(){
     return(
         <div className="slider-container">
-            <h5>100K Pagviews</h5>
+            <h5 className="views">100K Pagviews</h5>
             <input className="range-slider" type="range" />
             <div className="price-container">
                 <h1>$16.00</h1>

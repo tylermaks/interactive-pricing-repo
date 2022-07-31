@@ -51,8 +51,9 @@ h5{
     letter-spacing: 3px;
     text-transform: uppercase;
 }
-
-
+//++++++++++++++++++++++++++++++++
+//+++++++++MOBILE STYLES++++++++++
+//++++++++++++++++++++++++++++++++
 //LOGO COMPONENT
 .logo-container{
     position: relative;
@@ -61,8 +62,8 @@ h5{
     align-items: center;
     justify-content: center;
 
-    height: 175px;
-    margin-bottom: 2.5%;
+    height: 150px;
+    margin: 7.5vh 0;
     text-align: center;
     
     p{
@@ -92,7 +93,8 @@ h5{
     padding: 2rem;
 
     height: 600px;
-    width: 500px;
+    max-width: 500px;
+    width: 90%;
 }
 
 //BENEFITS CONTAINER
@@ -106,6 +108,14 @@ h5{
     height: 45%;
     margin-top: 5%;
     padding-top: 5%;
+}
+
+.benefit:nth-child(2){
+    margin: 1em 0;
+}
+
+.icon{
+    margin-right: 1em;
 }
 
 .trial-btn{
@@ -170,7 +180,12 @@ h5{
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    width: 80%;
+    max-width: 300px;
+    width: 100%;
+
+    span{
+        font-size: 12px;
+    }
 }  
 
 .discount{
@@ -237,3 +252,58 @@ h5{
     border-radius: 50%;
   }
 
+//++++++++++++++++++++++++++++++++
+//+++++++++DESKTOP STYLES+++++++++
+//++++++++++++++++++++++++++++++++
+@media screen and (min-width: 1000px) {
+
+    .pricing-container{
+        width: 75%;
+        max-width: 600px;
+        height: 450px
+    }
+
+    .slider-container{
+        display:inline-grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "views price"
+            "range range"
+            "toggle toggle"
+    }
+    
+    .views{
+        grid-area: views;
+    }
+    
+    .range-slider{
+        grid-area: range;
+    }
+
+    .price-container{
+        grid-area: price;
+        text-align: right;
+    }
+
+    .toggle-container{
+        grid-area:toggle;
+        margin-left: auto;
+    }
+
+    .benefits-container{
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0;
+        padding-top:0;
+    }
+
+ 
+
+    .trial-btn{
+        display: block;
+        margin: auto 0 auto 0;
+    }
+
+
+}

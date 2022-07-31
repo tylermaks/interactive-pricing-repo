@@ -14,9 +14,11 @@ function Pricing(){
         <div className="pricing-container">
             <Slider />
            <article className="benefits-container">
-                <p><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> Unlimited websites</p>
-                <p><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> 100% data ownership</p>
-                <p><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> Email reports</p>
+                <div>
+                    <p className="benefit"><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> Unlimited websites</p>
+                    <p className="benefit"><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> 100% data ownership</p>
+                    <p className="benefit"><img className="icon" src="./images/icon-check.svg" alt="checkmark" /> Email reports</p> 
+                </div>
                 <button className="trial-btn">Start my trail</button>    
            </article>
         </div>

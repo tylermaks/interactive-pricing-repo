@@ -60,8 +60,8 @@ h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 175px;
-  margin-bottom: 2.5%;
+  height: 150px;
+  margin: 7.5vh 0;
   text-align: center;
 }
 
@@ -87,7 +87,8 @@ h5 {
           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 2rem;
   height: 600px;
-  width: 500px;
+  max-width: 500px;
+  width: 90%;
 }
 
 .benefits-container {
@@ -108,6 +109,14 @@ h5 {
   height: 45%;
   margin-top: 5%;
   padding-top: 5%;
+}
+
+.benefit:nth-child(2) {
+  margin: 1em 0;
+}
+
+.icon {
+  margin-right: 1em;
 }
 
 .trial-btn {
@@ -183,7 +192,12 @@ h5 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 50px;
-  width: 80%;
+  max-width: 300px;
+  width: 100%;
+}
+
+.toggle-container span {
+  font-size: 12px;
 }
 
 .discount {
@@ -252,5 +266,61 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media screen and (min-width: 1000px) {
+  .pricing-container {
+    width: 75%;
+    max-width: 600px;
+    height: 450px;
+  }
+  .slider-container {
+    display: -ms-inline-grid;
+    display: inline-grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "views price" "range range" "toggle toggle";
+  }
+  .views {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: views;
+  }
+  .range-slider {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: range;
+  }
+  .price-container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: price;
+    text-align: right;
+  }
+  .toggle-container {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: toggle;
+    margin-left: auto;
+  }
+  .benefits-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .trial-btn {
+    display: block;
+    margin: auto 0 auto 0;
+  }
 }
 /*# sourceMappingURL=App.css.map */
