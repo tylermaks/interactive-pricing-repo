@@ -29,12 +29,11 @@ body{
 }
 
 .App{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-image: url("/public/images/bg-pattern.svg");
+    background-position: top center;
+    background-repeat: no-repeat;
 
-    padding: 5% 0;
+    padding-bottom:5vh;
 }
 
 //TEXT & REUSABLES
@@ -51,26 +50,34 @@ h5{
     letter-spacing: 3px;
     text-transform: uppercase;
 }
+
+.flex-center{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 //++++++++++++++++++++++++++++++++
 //+++++++++MOBILE STYLES++++++++++
 //++++++++++++++++++++++++++++++++
 //LOGO COMPONENT
 .logo-container{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
     height: 150px;
-    margin: 7.5vh 0;
+    margin:5vh 0;
     text-align: center;
+    width: 90%;
     
+    h2,p{
+        z-index: 2;
+    }
+
     p{
         line-height: 1.75;
         padding-top: 1rem;
-    }
-   
+        width: 65%;
+    } 
 }
 
 .logo{
@@ -81,7 +88,7 @@ h5{
     margin: 0 auto;
 
     height: 100%;
-    z-index: -1;
+    z-index:0;
 }
 
 
@@ -99,9 +106,6 @@ h5{
 
 //BENEFITS CONTAINER
 .benefits-container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
 
     border-top:1px solid $ltGrayBlue;
@@ -132,9 +136,6 @@ h5{
 
 //SLIDER CONTAINER
 .slider-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
 
     height: 55%;
@@ -147,7 +148,7 @@ h5{
     border-radius: 10px;
     outline: none;
     height: 10px;
-    width: 100%;
+    width: 100%;  
 }
 
 .range-slider::-webkit-slider-thumb{
@@ -159,8 +160,10 @@ h5{
     background: $dkCyan;
     background-image: url("/public/images/icon-slider.svg");
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
 }
+
+
 
 .price-container{ 
     h1{
@@ -194,6 +197,10 @@ h5{
     color:$ltRed;
     font-size: 12px;
     padding: 0.25em;
+}
+
+.discount::before{
+    content:"-25%";
 }
 
 .switch {
@@ -272,6 +279,15 @@ h5{
             "range range"
             "toggle toggle"
     }
+
+    .discount{
+        width: 100px;
+        text-align: center;
+    }
+
+    .discount::before{
+        content:"25% discount"
+    }
     
     .views{
         grid-area: views;
@@ -287,6 +303,7 @@ h5{
     }
 
     .toggle-container{
+        max-width: 375px;
         grid-area:toggle;
         margin-left: auto;
     }
@@ -298,12 +315,8 @@ h5{
         padding-top:0;
     }
 
- 
-
     .trial-btn{
         display: block;
         margin: auto 0 auto 0;
     }
-
-
 }

@@ -15,20 +15,10 @@ body {
 }
 
 .App {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 5% 0;
+  background-image: url("/public/images/bg-pattern.svg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-bottom: 5vh;
 }
 
 h1, h2 {
@@ -45,8 +35,7 @@ h5 {
   text-transform: uppercase;
 }
 
-.logo-container {
-  position: relative;
+.flex-center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,14 +49,24 @@ h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.logo-container {
+  position: relative;
   height: 150px;
-  margin: 7.5vh 0;
+  margin: 5vh 0;
   text-align: center;
+  width: 90%;
+}
+
+.logo-container h2, .logo-container p {
+  z-index: 2;
 }
 
 .logo-container p {
   line-height: 1.75;
   padding-top: 1rem;
+  width: 65%;
 }
 
 .logo {
@@ -77,7 +76,7 @@ h5 {
   top: 0;
   margin: 0 auto;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .pricing-container {
@@ -92,16 +91,6 @@ h5 {
 }
 
 .benefits-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -131,16 +120,6 @@ h5 {
 }
 
 .slider-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -206,6 +185,10 @@ h5 {
   color: #ff8c66;
   font-size: 12px;
   padding: 0.25em;
+}
+
+.discount::before {
+  content: "-25%";
 }
 
 .switch {
@@ -283,6 +266,13 @@ input:checked + .slider:before {
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: "views price" "range range" "toggle toggle";
   }
+  .discount {
+    width: 100px;
+    text-align: center;
+  }
+  .discount::before {
+    content: "25% discount";
+  }
   .views {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -301,6 +291,7 @@ input:checked + .slider:before {
     text-align: right;
   }
   .toggle-container {
+    max-width: 375px;
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
