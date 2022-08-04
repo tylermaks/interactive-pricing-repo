@@ -1,37 +1,27 @@
 import React, {useState} from "react"
 
-
-// - 10K pageviews / $8 per month
-// - 50K pageviews / $12 per month
-// - 100K pageviews / $16 per month
-// - 500k pageviews / $24 per month
-// - 1M pageviews / $36 per month
-
 function Slider(){
     const [price, setPrice] = useState("36")
     const [views, setViews] = useState('1M')
+    const [position, setPosition] = useState(4)
     const [discount, setDiscount] = useState(false)
 
-    const handleInput = () =>{
+    const handleInput = (e) =>{
         let pricesArr = [8,12,16,24,36]
         let viewArr = ["10K", "50K", "100K", "500K", "1M"]
-        let slider = document.getElementById('rangeSlider')
-        setPrice(pricesArr[slider.value])
-        setViews(viewArr[slider.value])
-
-        var colorFill = (slider.value-slider.min)/(slider.max-slider.min)*100
-        slider.style.background = 'linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%)' + colorFill + '%, hsl(224, 65%, 95%) ' + colorFill + '%, hsl(224, 65%, 95%) 100%)'
+        setPrice(pricesArr[e.target.value])
+        setViews(viewArr[e.target.value])
+        setPosition(e.target.value)
     }
 
     const handleClick = () =>{
         setDiscount(!discount)
     }
 
-
     return(
         <div className="slider-container flex-center">
             <h5 className="views">{views} views</h5>
-            <input onInput={handleInput} id="rangeSlider" className="range-slider" type="range" min="0" max="4" style={{background: 'linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%)' + 100 + '%, hsl(224, 65%, 95%) ' + 100 + '%, hsl(224, 65%, 95%) 100%)'}}/>            
+            <input onInput={handleInput} id="rangeSlider" className="range-slider" type="range" min="0" max="4" style={{background: 'linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%)' + (position/4)*100 + '%, hsl(224, 65%, 95%) ' + (position/4)*100 + '%, hsl(224, 65%, 95%) 100%)'}}/>            
             <div className="price-container">
                 <h1>${discount ? price * 0.75 : price}.00</h1>
                 <p>/month</p>
