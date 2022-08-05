@@ -1,16 +1,16 @@
 import React, {useState} from "react"
 
+let pricesArr = [8,12,16,24,36]
+let viewArr = ["10K", "50K", "100K", "500K", "1M"]
+
 function Slider(){
-    const [price, setPrice] = useState("36")
-    const [views, setViews] = useState('1M')
     const [position, setPosition] = useState(4)
     const [discount, setDiscount] = useState(false)
+    const price = pricesArr[position]
+    const view = viewArr[position]
+    const backgroundValue = 'linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%)' + (position/4)*100 + '%, hsl(224, 65%, 95%) ' + (position/4)*100 + '%, hsl(224, 65%, 95%) 100%)'
 
     const handleInput = (e) =>{
-        let pricesArr = [8,12,16,24,36]
-        let viewArr = ["10K", "50K", "100K", "500K", "1M"]
-        setPrice(pricesArr[e.target.value])
-        setViews(viewArr[e.target.value])
         setPosition(e.target.value)
     }
 
@@ -20,8 +20,15 @@ function Slider(){
 
     return(
         <div className="slider-container flex-center">
-            <h5 className="views">{views} views</h5>
-            <input onInput={handleInput} id="rangeSlider" className="range-slider" type="range" min="0" max="4" style={{background: 'linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%)' + (position/4)*100 + '%, hsl(224, 65%, 95%) ' + (position/4)*100 + '%, hsl(224, 65%, 95%) 100%)'}}/>            
+            <h5 className="views">{view} views</h5>
+            <input 
+                onInput={handleInput} 
+                id="rangeSlider" 
+                className="range-slider" 
+                type="range" min="0" 
+                max="4" 
+                style={{background: backgroundValue }}
+            />            
             <div className="price-container">
                 <h1>${discount ? price * 0.75 : price}.00</h1>
                 <p>/month</p>

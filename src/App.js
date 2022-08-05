@@ -5,10 +5,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App flex-center">
+    <main className="App flex-center">
       <Logo />
       <Pricing />
-    </div>
+    </main>
   );
 }
 
